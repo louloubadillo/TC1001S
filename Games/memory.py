@@ -21,8 +21,9 @@ from freegames import path
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
-state = {'mark': None}
+state = {'mark': None, 'score': 0, 'tap': 0}
 hide = [True] * 64
+counter = 0
 
 
 def square(x, y):
@@ -52,6 +53,7 @@ def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     spot = index(x, y)
     mark = state['mark']
+    state['tap'] += 1
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
@@ -59,6 +61,7 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        state['score'] += 1
 
 
 def draw():
@@ -81,6 +84,7 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
+        
 
     update()
     ontimer(draw, 100)
@@ -94,3 +98,7 @@ tracer(False)
 onscreenclick(tap)
 draw()
 done()
+print("Total Taps: ")
+print(state["tap"])
+print("Final Score: ")
+print(state["score"])
