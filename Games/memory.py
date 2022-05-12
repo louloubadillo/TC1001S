@@ -11,14 +11,22 @@ Exercises:
 5. Use letters instead of tiles.
 """
 
+from fileinput import close
 from random import *
 from turtle import *
+
+import string
 
 from freegames import path
 
 #decreased the number of total tiles, from 64 to 16
 car = path('car.gif')
-tiles = list(range(8)) * 2
+# initialize tiles as letters
+alphabet_string = string.ascii_uppercase
+alphabet_list = list(alphabet_string)
+listLetters = alphabet_list[:8]
+tiles = listLetters * 2
+
 #add score and tap states
 state = {'mark': None, 'score': 0, 'tap': 0}
 hide = [True] * 16
@@ -33,19 +41,19 @@ def square(x, y):
     color('black', 'white')
     begin_fill()
     for count in range(4):
-        forward(50)
+        forward(100)
         left(90)
     end_fill()
 
 #centered board (4x4)
 def index(x, y):
     """Convert (x, y) coordinates to tiles index."""
-    return int((x + 100) // 50 + ((y + 100) // 50) * 4)
+    return int((x + 200) // 100 + ((y + 200) // 100) * 4)
 
 
 def xy(count):
     """Convert tiles count to (x, y) coordinates."""
-    return (count % 4) * 50 - 100, (count // 4) * 50 - 100
+    return (count % 4) * 100 - 200, (count // 4) * 100 - 200
 
 
 def tap(x, y):
@@ -82,9 +90,9 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        goto(x + 34, y + 19)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial', 50, 'normal'))
         
 
     update()
