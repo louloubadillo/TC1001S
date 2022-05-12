@@ -15,6 +15,8 @@ Exercises
 
 """
 
+from calendar import c
+from cgi import print_form
 from random import choice
 from turtle import *
 
@@ -26,8 +28,8 @@ writer = Turtle(visible=False)
 aim = vector(5, 0)
 pacman = vector(-40, -80)
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
+    [vector(-180, 160), vector(0, 0)],
+    [vector(-180, -160), vector(0, 0)],
 ]
 # fmt: off
 tiles = [
@@ -135,7 +137,46 @@ def move():
     dot(20, 'yellow')
 
     for point, course in ghosts:
+        if (pacman.y > point.y): # Ghost have to go up
+            if (pacman.x > point.x): # Ghost have to go right
+                options = [
+                    vector(5, 0),
+                    vector(0, 5),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+            elif (pacman.x < point.x): # Ghost have to go left
+                options = [
+                    vector(-5, 0),
+                    vector(0, 5),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+        elif (pacman.y < point.y): # Ghost have to go down
+            if (pacman.x > point.x): # Ghost have to go right
+                options = [
+                    vector(5, 0),
+                    vector(0, -5),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+            elif (pacman.x < point.x): # Ghost have to go left
+                options = [
+                    vector(-5, 0),
+                    vector(0, -5),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+                
         if valid(point + course):
+            print("Ghost is moving")
+            print(point, course)
+            print("Pacman is moving")
+            print(pacman.x, pacman.y)
             point.move(course*2)
         else:
             options = [
