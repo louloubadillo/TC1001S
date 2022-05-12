@@ -2,6 +2,7 @@
 
 Team
 
+Edgar Rostro
 Martha del Río
 Lourdes Badillo 
 
@@ -18,6 +19,8 @@ import turtle
 from turtle import *
 from freegames import vector
 from math import hypot
+
+## Add methods for different shapes
 
 def line(start, end):
     "Draw line from start to end."
