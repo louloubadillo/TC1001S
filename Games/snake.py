@@ -32,10 +32,16 @@ def inside(head):
 def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
-    head.move(aim*1.5)
+    head.move(aim)
 
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
+        update()
+        return
+
+    # if snake collides, it's game over
+    if not inside(head):
+        square(head[0], head[1], 9, 'red')
         update()
         return
 
@@ -54,9 +60,9 @@ def move():
     for body in snake:
         square(body.x, body.y, 9, 'black')
     
+    #change color of food, so it looks like a disco ball
     value = randrange(0, 3)
     colors = ['blue', 'orange', 'green', 'yellow']
-    print(value)
     
     square(food.x, food.y, 9, colors[value])
     update()
@@ -66,6 +72,7 @@ setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
 listen()
+# arrow keys functionality
 onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
