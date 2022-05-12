@@ -8,6 +8,7 @@ Martha del Río, A01023890
 
 ## Tasks
 Through python, we modified 3 different games to customize them. <br>
+<br>
 Games used: <br>
 - Snake 🐍 <br>
 - Memory 🧠 <br>
