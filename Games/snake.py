@@ -32,7 +32,7 @@ def inside(head):
 def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
-    head.move(aim)
+    head.move(aim*1.5)
 
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
