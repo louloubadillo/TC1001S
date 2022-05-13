@@ -17,11 +17,8 @@ from random import randrange
 from freegames import square, vector
 from random import choice
 
-food =[
-    [vector(0, 0), vector(0, 10)],
-    [vector(50, -50), vector(10, 0)],
-]
-    
+food = vector(0, 0)
+aimf = vector(0, 10)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
@@ -65,26 +62,43 @@ def move():
     
     for body in snake:
         square(body.x, body.y, 9, 'black')
-    #edit two food objects
-    for positionf, aimf in food:
-        #change color of food, so it looks like a disco ball
-        value = randrange(0, 3)
-        colors = ['blue', 'orange', 'green', 'yellow']
-        square(positionf.x, positionf.y, 9, colors[value])
-        
-        #change position of food 
-        options = [
-            vector(10, 0),
-            vector(-10, 0),
-            vector(0, 10),
-            vector(0, -10),
-        ]
-        
-        plan = choice(options)
 
-        aimf.x = plan.x
-        aimf.y = plan.y
-        positionf.move(aimf)
+    #change color of food, so it looks like a disco ball
+    value = randrange(0, 3)
+    colors = ['blue', 'orange', 'green', 'yellow']
+    square(food.x, food.y, 9, colors[value])
+
+    #change position of food 
+    options = [
+        vector(10, 0),
+        vector(-10, 0),
+        vector(0, 10),
+        vector(0, -10),
+    ]
+    plan = choice(options)
+    aimf.x = plan.x
+    aimf.y = plan.y
+    food.move(aimf)
+
+    # for positionf, aimf in food:
+    #     #change color of food, so it looks like a disco ball
+    #     value = randrange(0, 3)
+    #     colors = ['blue', 'orange', 'green', 'yellow']
+    #     square(positionf.x, positionf.y, 9, colors[value])
+        
+    #     #change position of food 
+    #     options = [
+    #         vector(10, 0),
+    #         vector(-10, 0),
+    #         vector(0, 10),
+    #         vector(0, -10),
+    #     ]
+        
+    #     plan = choice(options)
+
+    #     aimf.x = plan.x
+    #     aimf.y = plan.y
+    #     positionf.move(aimf)
 
     update()
     ontimer(move, 100)
