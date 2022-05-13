@@ -3,7 +3,7 @@ Computer Tools Course <br>
 Professor: Gilberto Echeverría 
 
 ## Team 🤝
-Edgar Castro, A01029036 <br>
+Edgar Rostro, A01029036 <br>
 Lulú Badillo, A01024232 <br>
 Martha del Río, A01023890
 
