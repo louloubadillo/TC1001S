@@ -90,7 +90,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 34, y + 19)
+        goto(x + 34, y + 19) #center letters in their square
         color('black')
         write(tiles[mark], font=('Arial', 50, 'normal'))
         
