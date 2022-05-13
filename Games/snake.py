@@ -39,7 +39,7 @@ def move():
     bgcolor('lightblue')
     head = snake[-1].copy()
     head.move(aim)
-
+    
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
         update()
@@ -65,7 +65,7 @@ def move():
     
     for body in snake:
         square(body.x, body.y, 9, 'black')
-
+    #edit two food objects
     for positionf, aimf in food:
         #change color of food, so it looks like a disco ball
         value = randrange(0, 3)
