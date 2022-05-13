@@ -14,7 +14,7 @@ Games used: <br>
 - Snake 🐍 <br>
   · <a href="https://github.com/marthadelrio">@marthadelrio</a> changed the color of the food, so that it looks like a disco ball<br>
   · <a href="https://github.com/EdgarRostro">@edgarrostro</a> changed the food to 2 different ones that move randomly <br>
-  · <a href="https://github.com/louloubadillo">@louloubadillo</a> modified the game dynamic (when the snake crashes into a wall it is game over) <br>
+  · <a href="https://github.com/louloubadillo">@louloubadillo</a> modified the game dynamic by making the snake go over the edges <br>
 - Memory 🧠 <br>
   · <a href="https://github.com/marthadelrio">@marthadelrio</a> resized the board (from 8x8 to 4x4) <br>
   · <a href="https://github.com/EdgarRostro">@edgarrostro</a> changed the numbers in the tiles to letters and resized the image behind the board<br>
