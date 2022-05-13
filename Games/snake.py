@@ -40,16 +40,27 @@ def move():
     head = snake[-1].copy()
     head.move(aim)
     
-    if not inside(head) or head in snake:
+    # make the snake go around the edges
+    if  head in snake:
         square(head.x, head.y, 9, 'red')
         update()
         return
 
-    # if snake collides, it's game over
-    if not inside(head):
-        square(head[0], head[1], 9, 'red')
-        update()
-        return
+    #left edge
+    if head.x < -200:
+        head.x = 190
+
+    #upper edge
+    if head.y > 190:
+        head.y = -200
+
+    #right edge
+    if head.x > 190:
+        head.x = -200
+
+    #lower edge
+    if head.y < -200:
+        head.y = 190 
 
     snake.append(head)
 
